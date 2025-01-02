@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Feedback{% endblock %}
+
+{% block content %}
+
+                <div class="welcome-section mb-5 bg-white p-4 rounded-4 shadow-sm">
+                    <h2 class="fw-bold text-primary">We Value Your Feedback</h2>
+                    <p class="text-muted fs-5">Share your thoughts to help us improve!</p>
+                </div>
+                
+                <!-- Feedback Form Container -->
+                <div id="feedback-container">
+                    {% include 'expenses/partials/feedback_p.html' %}
+                </div>
+                
+                <!-- Contact Us Section -->
+                <div class="contact-section mb-5 bg-white p-4 rounded-4 shadow-sm">
+                    <h2 class="fw-bold text-primary">Contact Us</h2>
+                    <p class="text-muted fs-5">If you have any questions or need assistance, feel free to reach out to us:</p>
+                    <ul class="list-unstyled fs-5 text-muted">
+                        <li class="mb-2">
+                            <strong>Email:</strong> <a href="mailto:support@expensetracker.com" class="text-decoration-none text-primary">support@expensetracker.com</a>
+                        </li>
+                        <li class="mb-2">
+                            <strong>Phone:</strong> <a href="tel:+15551234567" class="text-decoration-none text-primary">+1 (555) 123-4567</a>
+                        </li>
+                        <li class="mb-2">
+                            <strong>Address:</strong> 123 Expense Tracker Lane, Suite 400, Finance City, FC 12345
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

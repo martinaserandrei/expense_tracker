@@ -1,0 +1,28 @@
+{% load form_extras %}
+<form method="post" hx-post="{% url 'new_transaction' %}" hx-target=".container" hx-indicator="#loading-indicator">
+    {% csrf_token %}
+    <div class="mb-3">
+        {{ form.date.label_tag }}
+        {{ form.date|add_class:"form-control" }}
+    </div>    
+    <div class="mb-3">
+        {{ form.category.label_tag }}
+        {{ form.category|add_class:"form-control" }}
+    </div>
+    <div class="mb-3">
+        {{ form.type.label_tag }}
+        {{ form.type|add_class:"form-control" }}
+    </div>
+    <div class="mb-3">
+        {{ form.amount.label_tag }}
+        {{ form.amount|add_class:"form-control" }}
+    </div>
+    <div class="mb-3">
+        {{ form.description.label_tag }}
+        {{ form.description|add_class:"form-control" }}
+    </div>
+    <div class="d-flex justify-content-between">
+        <a href="{% url 'transactions' %}" class="btn btn-secondary">Back to Transactions</a>
+        <button type="submit" class="btn btn-primary">Save Transaction</button>
+    </div>
+</form>

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Transactions Charts{% endblock %}
+
+{% block content %}
+<div class="welcome-section mb-5 bg-white p-4 rounded-4 shadow-sm">
+    <h2 class="fw-bold text-primary">Your Charts</h2>
+    <p class="text-muted fs-5">Get valuable insights of you transactions through different charts.</p>
+</div>
+
+
+<div>
+    {% include 'expenses/partials/charts_container.html' %}
+</div>
+{% endblock %}

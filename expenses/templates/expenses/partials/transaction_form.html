@@ -1,0 +1,30 @@
+{% load widget_tweaks %}
+<div class="mb-3">
+    {{ form.date.label_tag }}
+    {{ form.date|add_class:"form-control" }}
+    
+    {% for error in form.date.errors %}
+        <p class="text-red-400 mt-1">{{ error }}</p>
+    {% endfor %}
+</div>
+<div class="mb-3">
+    {{ form.category.label_tag }}
+    {{ form.category|add_class:"form-control" }}
+</div>
+<div class="mb-3">
+    {{ form.type.label_tag }}
+    {{ form.type|add_class:"form-control" }}
+</div>
+<div class="mb-3">
+    {{ form.amount.label_tag }}
+    {{ form.amount|add_class:"form-control" }}
+
+    {% for error in form.amount.errors %}
+        <p class="text-red-400 mt-1">{{ error }}</p>
+    {% endfor %}
+
+</div>
+<div class="mb-3">
+    {{ form.description.label_tag }}
+    {{ form.description|add_class:"form-control" }}
+</div>

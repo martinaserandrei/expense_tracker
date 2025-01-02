@@ -1,0 +1,21 @@
+<div class="card mb-4 border-0 rounded-4 shadow-sm">
+    <div class="card-body p-4">
+        <h5 class="card-title fw-bold mb-4">Your Feedback</h5>
+        <form method="POST" hx-post="{% url 'feedback' %}" hx-target="#feedback-container">
+            {% csrf_token %}
+            <div class="mb-4">
+                <textarea
+                    id="bio"
+                    name="bio"
+                    rows="5"
+                    class="form-control"
+                    placeholder="Enter your feedback here..."></textarea>
+            </div>
+            <button
+                type="submit"
+                class="btn btn-primary w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md focus:outline-none">
+                Submit Feedback
+            </button>
+        </form>        
+    </div>
+</div>

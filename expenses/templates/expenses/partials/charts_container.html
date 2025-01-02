@@ -1,0 +1,99 @@
+{% load static %}
+{% load widget_tweaks %}
+
+<style>
+.grid-container {
+    display: grid;
+    grid-template-columns: 3fr 1fr; /* Adjust this to control the ratio of filter form and chart */
+    gap: 1rem;
+    margin-top: 2rem; /* Give some space at the top */
+}
+
+#filter-form-container {
+    background-color: #fff; /* White background for the filter form */
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#transaction-table-container {
+    background-color: #fff; /* White background for the chart container */
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.filter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adds space between form elements */
+}
+
+.filter-form input,
+.filter-form select,
+.filter-form button {
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    transition: border-color 0.3s ease;
+}
+
+.filter-form input:focus,
+.filter-form select:focus {
+    border-color: #007bff; /* Blue border when input is focused */
+    outline: none;
+}
+
+/* Styling for the button */
+.filter-form button {
+    background-color: #007bff; /* Blue background */
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filter-form button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+
+</style>
+
+<div class="grid-container">
+
+    <div id="transaction-charts-container" class="mb-5 bg-white p-4 rounded-4 shadow-sm">
+        <h5 class="chart-title fw-bold" style="color: #343a40;">
+            Income and Expense Comparison
+        </h5> 
+        {{ income_expense_bar|safe }}
+
+        <h5 class="chart-title fw-bold" style="color: #343a40;">
+            Total Income per Category
+        </h5> 
+        {{ category_income_pie|safe }}
+        
+        <h5 class="chart-title fw-bold" style="color: #343a40;">
+            Total Expense per Category
+        </h5>
+        {{ category_expense_pie|safe }}
+
+        <h5 class="chart-title fw-bold" style="color: #343a40;">
+            Income and Expense Trend Over Time
+        </h5> 
+        {{ plot_line_chart|safe }}
+    </div>
+
+    <div id="filter-form-container" class="mb-5 bg-white p-4 rounded-4 shadow-sm">
+        <!-- Filter Form -->
+        <form method="get" class="filter-form" hx-get="{% url 'charts' %}" 
+        hx-target="#transaction-charts-container" 
+        hx-swap="outerHTML" 
+        hx-indicator="#loading-indicator">
+            {{ filter.form.as_p }}
+            <button type="submit" class="btn hover-line">Filter</button>
+        </form>
+    </div>
+
+</div>

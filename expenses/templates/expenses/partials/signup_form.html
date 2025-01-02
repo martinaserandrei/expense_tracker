@@ -1,0 +1,5 @@
+<form method="post" class="form-container" hx-post="{% url 'signup' %}" hx-target=".signup-container" hx-indicator="#loading-indicator">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary w-100">Register</button>
+</form>

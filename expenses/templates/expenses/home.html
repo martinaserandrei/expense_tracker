@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <div class="welcome-section mb-5 bg-white p-4 rounded-4 shadow-sm">
+        <h2 class="fw-bold text-primary">Welcome to your personal expense tracker, {{ request.user.first_name|default:request.user.username }}!</h2>
+        <p class="text-muted fs-5">Manage your expenses efficiently and track your spending habits</p>
+    </div>
+    <!-- Icons Section -->
+    <div class="col-md-2 col-lg-2 p-4">
+        <div class="mb-4">
+            <div class="card shadow-sm text-center p-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon text-success mb-2" width="40" height="40" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M11 1a2 2 0 0 1 2 2v1H3V3a2 2 0 0 1 2-2h6zm0 1H5a1 1 0 0 0-1 1v1h8V3a1 1 0 0 0-1-1z"/>
+                    <path fill-rule="evenodd" d="M2 6a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6zm2.5.5v7h9v-7h-9zM4.5 6h7V5h-7v1z"/>
+                </svg>
+                <h5>Total Income</h5>
+                <p class="text-success">{{ total_income|floatformat:2 }}</p>
+            </div>
+        </div>
+        <div class="mb-4">
+            <div class="card shadow-sm text-center p-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon text-danger mb-2" width="40" height="40" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M3 3a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3zm2-1a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H5z"/>
+                    <path d="M8 9.5a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 0 0 1h2a.5.5 0 0 0 .5-.5z"/>
+                </svg>
+                <h5>Total Expenses</h5>
+                <p class="text-danger">{{ total_expenses|floatformat:2 }}</p>
+            </div>
+        </div>
+        <div>
+            <div class="card shadow-sm text-center p-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon text-primary mb-2" width="40" height="40" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M7 4.5a.5.5 0 0 1 .5-.5h1A.5.5 0 0 1 9 4.5v7a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-7z"/>
+                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3z"/>
+                </svg>
+                <h5>Net Income</h5>
+                <p class="text-primary">{{ net_income|floatformat:2 }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex items-center">
+        <div class="flex items-center">
+            <a class="icon-btn" href="{% url 'import' %}" hx-include="#filter-form">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                </svg>
+            </a>
+            <a class="icon-btn" href="{% url 'export' %}" hx-push-url="true" hx-target="#transaction-block">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" />
+                </svg>
+            </a>                
+        </div>
+        </a>
+{% endblock %}
