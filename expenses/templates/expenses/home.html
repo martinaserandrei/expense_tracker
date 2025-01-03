@@ -41,7 +41,7 @@
                 <path fill-rule="evenodd" d="M2 6a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6zm2.5.5v7h9v-7h-9zM4.5 6h7V5h-7v1z"/>
             </svg>
             <h5>Total Income</h5>
-            <p class="text-success">{{ total_income|floatformat:2 }}</p>
+            <p class="text-success">{{total_income|floatformat:2}}</p>
         </div>
     </div>
 
@@ -52,7 +52,7 @@
                 <path d="M8 9.5a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 0 0 1h2a.5.5 0 0 0 .5-.5z"/>
             </svg>
             <h5>Total Expenses</h5>
-            <p class="text-danger">{{ total_expenses|floatformat:2 }}</p>
+            <p class="text-danger">{{total_expenses|floatformat:2}}</p>
         </div>
     </div>
     <div class="col">
@@ -62,7 +62,7 @@
                 <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3z"/>
             </svg>
             <h5>Net Income</h5>
-            <p class="text-primary">{{ net_income|floatformat:2 }}</p>
+            <p class="text-primary">{{net_income|floatformat:2}}</p>
         </div>
     </div>
 </div>
