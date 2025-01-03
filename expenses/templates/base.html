@@ -67,12 +67,13 @@
                                 </svg>
                             </span>Feedback
                         </a>
-                    </nav>                    
+                    </nav>                 
                     <hr class="text-white my-4">
-                    <form method="post" action="{% url 'logout' %}" class="mt-auto">
+                    <form method="post" action="{% url 'logout' %}"></form>
                         {% csrf_token %}
                         <button type="submit" class="btn btn-light text-primary w-100">Logout</button>
-                    </form>
+                    </form>   
+                    
                 </div>
             </div>
 
