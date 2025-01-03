@@ -116,9 +116,9 @@
     {% if transactions %}
     <div>
         <div class =" mb-5 bg-white p-4 rounded-4 shadow-sm">
-            <h1 class="mt-4 mb-4 prose prose 2xl">
+            <h2 class="mb-4 prose prose 2xl fw-bold">
                 Totals
-            </h1>
+            </h2>
             <table class="table">
                 <thead class="text-xs text-white uppercase">
                     <tr>
@@ -139,13 +139,9 @@
 
         <div id="transaction-table-container" class="mb-5 bg-white p-4 rounded-4 shadow-sm">
             <!-- Transactions Table -->
-            <h1 class=""mt-8 mb-4 prose prose 2xl text-white>
+            <h2 class="mb-4 fw-bold prose prose 2xl">
                 Transactions
-            </h1> 
-
-
-
-
+            </h2> 
             <table class="table">
                 <thead>
                     <tr>
@@ -204,6 +200,7 @@
 
     <!-- 1/4 cols for the filter form -->
     <div id="filter-form-container">
+        <h3 class="mb-4 fw-bold">Filter Transactions</h3>
         <!-- Filter Form -->
         <form method="get" class="filter-form" hx-get="{% url 'transactions' %}" hx-target="#transaction-table-container" hx-swap="outerHTML" hx-indicator="#loading-indicator" id="filter-form">
             {{ filter.form.as_p }}

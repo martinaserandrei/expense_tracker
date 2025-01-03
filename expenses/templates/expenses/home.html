@@ -3,7 +3,7 @@
 
 {% block content %}
     <div class="welcome-section mb-5 bg-white p-4 rounded-4 shadow-sm">
-        <h2 class="fw-bold text-primary">Welcome to your personal expense tracker, {{ request.user.first_name|default:request.user.username }}!</h2>
+        <h1 class="fw-bold text-primary">Welcome to your personal expense tracker, {{ request.user.first_name|default:request.user.username }}!</h1>
         <p class="text-muted fs-5">Manage your expenses efficiently and track your spending habits</p>
     </div>
     <!-- Icons Section -->
