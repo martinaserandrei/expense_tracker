@@ -1,5 +1,6 @@
 import django_filters
 from expenses.models import Transaction, Category
+from django import forms
 
 class TransactionFilter(django_filters.FilterSet):
     transaction_type = django_filters.ChoiceFilter(
@@ -29,11 +30,13 @@ class TransactionFilter(django_filters.FilterSet):
         field_name='date',
         lookup_expr='gte',
         label='Start Date',
+        widget=forms.DateInput(attrs={'type': 'date'}),
     )
     end_date = django_filters.DateFilter(
         field_name='date',
         lookup_expr='lte',
         label='End Date',
+        widget=forms.DateInput(attrs={'type': 'date'}),
     )
 
     class Meta:
